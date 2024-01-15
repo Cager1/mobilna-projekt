@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "815586047400",
+    "project_id": "estore-55070",
+    "storage_bucket": "estore-55070.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815586047400:android:795e51767f0bb3109d599d",
+        "android_client_info": {
+          "package_name": "ba.sum.fpmoz.estore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJc5tmao4OiYHTz9VwjujMKwz0ZKe5hpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
