@@ -1,5 +1,6 @@
 package ba.sum.fpmoz.estore;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     openFramgent(new Store());
                     return true;
                 }
+
                 return false;
             }
         });
@@ -94,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if(itemId == R.id.help) {
             openFramgent(new Help());
         }
+        else if(itemId == R.id.signout){
+            signOut();
+        }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -110,6 +117,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
+    }
+    private void signOut() {
+        FirebaseAuth.getInstance().signOut();
+        Toast.makeText(this, "Signed out", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(MainActivity.this, Welcome.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
     }
 
 
