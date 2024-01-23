@@ -38,7 +38,7 @@
     <ProgressBar
         android:id="@+id/progress_bar"
         style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
@@ -52,27 +52,26 @@
 
     <TextView
         android:id="@+id/expensive"
-        android:layout_width="97dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="158dp"
-        android:layout_marginEnd="155dp"
-        android:textColor="@color/white"
-        android:layout_marginBottom="461dp"
-        android:text="Najskuplji" />
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="217dp"
+        android:background="@drawable/custom_edit_text_white"
+        android:text="Najskuplji"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/least_expensive"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="147dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="419dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="201dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="153dp"
+        android:background="@drawable/custom_edit_text_white"
         android:text="Najjeftiniji"
         android:textColor="@color/white" />
 
@@ -83,9 +82,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="146dp"
-        android:layout_marginEnd="119dp"
-        android:layout_marginBottom="297dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="92dp"
+        android:background="@drawable/custom_edit_text_white"
         android:text="Prosječna cijena"
         android:textColor="@color/white" />
 
