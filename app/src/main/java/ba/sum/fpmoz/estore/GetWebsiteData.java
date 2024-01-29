@@ -2,6 +2,7 @@ package ba.sum.fpmoz.estore;
 
 
 
+import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
@@ -25,9 +26,15 @@ public class GetWebsiteData {
 
     ProgressBar progress_bar;
     Button submit_button;
-    TextView most_expensive;
-    TextView least_expensive;
-    TextView average;
+    TextView vin;
+
+    TextView make;
+
+    TextView manufacturer;
+
+    TextView manufactured_in;
+
+    TextView model_year;
 
     private final OkHttpClient client = new OkHttpClient().newBuilder()
             .connectTimeout(60, TimeUnit.SECONDS)
@@ -36,23 +43,23 @@ public class GetWebsiteData {
             .build();
 
 
-    public void getData(String filters, Button sb, ProgressBar pb, TextView me, TextView le, TextView avg) {
+    public void getData(String vin_number,Button sb, ProgressBar pb, TextView Avin, TextView Amake, TextView Amanufacturer, TextView Amanufactured_in, TextView Amodel_year) {
         Log.d("RESPONSE", "getData: ");
         submit_button = sb;
         progress_bar = pb;
-        most_expensive = me;
-        least_expensive = le;
-        average = avg;
+        this.vin = Avin;
+        this.make = Amake;
+        this.manufacturer = Amanufacturer;
+        this.manufactured_in = Amanufactured_in;
+        this.model_year = Amodel_year;
         submit_button.setEnabled(false);
         progress_bar.setVisibility(ProgressBar.VISIBLE);
-        String url = "https://scraper.mojshop.net/scrape";
-        String requestBody = "{\"url\":\"https://olx.ba/pretraga?q=" + filters + "\"}";
-        // Create the request body
-        RequestBody body = RequestBody.create(MediaType.parse("application/json"), requestBody);
+        String url = "https://vin-decoder-api-europe.p.rapidapi.com/vin?vin=" + vin_number;
         // create get request
         Request request = new Request.Builder()
                 .url(url)
-                .post(body)
+                .addHeader("X-RapidAPI-Key", "7cfcf9a02emshf2bb227dbff7966p10630cjsnec10b86140de")
+                .addHeader("X-RapidAPI-Host", "vin-decoder-api-europe.p.rapidapi.com")
                 .build();
 
         // Make the asynchronous POST request
@@ -95,19 +102,23 @@ public class GetWebsiteData {
                     throw new IOException("Unexpected code " + response);
                 };
                 Gson gson = new Gson();
-                OlxResponse olxResponse = gson.fromJson(responseBody, OlxResponse.class);
+                VinResponse vinResponse = gson.fromJson(responseBody, VinResponse.class);
                 Log.d("RESPONSE", "onResponse: ");
                 // Do something with the response
                 new Handler(Looper.getMainLooper()).post(new Runnable() {
+                    @SuppressLint("SetTextI18n")
                     @Override
                     public void run() {
                         // Update UI on the main thread
                         // Get progress_bar from fragment_search.xml
                         progress_bar.setVisibility(ProgressBar.INVISIBLE);
                         submit_button.setEnabled(true);
-                        most_expensive.setText(olxResponse.getMostExpensive());
-                        least_expensive.setText(olxResponse.getLeastExpensive());
-                        average.setText(olxResponse.getAverage());
+                        vin.setText("VIN broj: "  + vinResponse.getVin());
+                        make.setText("Marka: " + vinResponse.getMake());
+                        manufacturer.setText("Proizvođač: " + vinResponse.getManufacturer());
+                        manufactured_in.setText("Proizvedeno: " + vinResponse.getManufacturedIn());
+                        model_year.setText("Godina proizvodnje: " + vinResponse.getModelYear());
+
                     }
                 });
 

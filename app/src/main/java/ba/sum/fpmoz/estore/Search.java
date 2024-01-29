@@ -30,9 +30,13 @@ public class Search extends Fragment {
 
     Button button_submit;
     ProgressBar progress_bar;
-    TextView most_expensive;
-    TextView least_expensive;
-    TextView average_price;
+    TextView vin;
+    TextView manufacturer;
+    TextView make;
+
+    TextView manufactured_in;
+
+    TextView model_year;
 
     @Override
     public void onCreate( Bundle savedInstanceState) {
@@ -47,9 +51,11 @@ public class Search extends Fragment {
         // Inflate the layout for this fragment
         button_submit = view.findViewById(R.id.search_submit);
         progress_bar = view.findViewById(R.id.progress_bar);
-        most_expensive = view.findViewById(R.id.expensive);
-        least_expensive = view.findViewById(R.id.least_expensive);
-        average_price = view.findViewById(R.id.average);
+        vin = view.findViewById(R.id.vin);
+        make = view.findViewById(R.id.make);
+        manufacturer = view.findViewById(R.id.manufacturer);
+        manufactured_in = view.findViewById(R.id.manufactured_in);
+        model_year = view.findViewById(R.id.model_year);
         // create submit on click listener
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +65,9 @@ public class Search extends Fragment {
                 String search_value = search_text.getText().toString();
 
 
-                new GetWebsiteData().getData(search_value, button_submit, progress_bar, most_expensive, least_expensive, average_price);
+                new GetWebsiteData().getData(
+                        search_value
+                        , button_submit, progress_bar, vin, make, manufacturer, manufactured_in, model_year);
             }
         });
         return view;
