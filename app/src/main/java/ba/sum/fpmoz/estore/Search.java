@@ -60,7 +60,7 @@ public class Search extends Fragment {
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // get search_text from fragment_search.xml
+                // get search_text from fragment_home.xml
                 EditText search_text = Objects.requireNonNull(requireView().findViewById(R.id.search_input));
                 String search_value = search_text.getText().toString();
 

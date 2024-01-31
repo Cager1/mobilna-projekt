@@ -28,14 +28,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     BottomNavigationView bottomNavigationView;
     FragmentManager fragmentManager;
     Toolbar toolbar;
-    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fab = findViewById(R.id.fab);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -57,16 +55,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if(itemId == R.id.bottom_home){
                     openFramgent(new Home());
                     return true;
-                } else if (itemId == R.id.bottom_saved) {
-                    openFramgent((new Saved()));
-                    return true;
-                } else if (itemId == R.id.bottom_search) {
-                    openFramgent(new Search());
-                    return true;
-                }
-                else if(itemId == R.id.bottom_store){
-                    openFramgent(new Store());
-                    return true;
                 }
 
                 return false;
@@ -76,12 +64,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentManager = getSupportFragmentManager();
         openFramgent(new Home());
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"Ovo cu ostaviti za Cagera :D", Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 
@@ -94,9 +76,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             openFramgent(new Settings());
         } else if (itemId == R.id.about) {
             openFramgent(new About());
-        }
-        else if(itemId == R.id.help) {
-            openFramgent(new Help());
         }
         else if(itemId == R.id.signout){
             signOut();

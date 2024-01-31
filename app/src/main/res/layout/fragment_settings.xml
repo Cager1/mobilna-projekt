@@ -1,56 +1,96 @@
 <!-- res/layout/change_password_layout.xml -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="16dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/forgotTitle"
+        android:text="Forgot Password"
+        android:background="@drawable/black_round"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        android:textSize="17sp"
+        android:drawableLeft="@drawable/lock_reset"
+        android:drawablePadding="8dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Unesite staru lozinku:"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        />
 
     <EditText
-        android:layout_marginTop="60dp"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
         android:id="@+id/editTextOld"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:textSize="15sp"
-        android:background="@drawable/custom_edit_box_white"
-        android:hint="Unesite staru lozinku"
-        android:textColorHint="@color/white"
-        android:gravity="start|center_vertical"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:textSize="16sp"
         android:inputType="textPassword"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="30dp"
+        android:maxLines="1"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/desc"
+        android:text="Unesite novu lozinku:"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        />
 
     <EditText
         android:id="@+id/editTextNew"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:textSize="15sp"
-        android:background="@drawable/custom_edit_box_white"
-        android:gravity="start|center_vertical"
-        android:hint="Unesite novu lozinku"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:backgroundTint="@color/black"
+        android:textSize="16sp"
         android:inputType="textPassword"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="30dp"
+        android:maxLines="1"
+       />
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Ponovno unesite novu lozinku:"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
+    android:layout_marginTop="8dp"
+    android:textSize="16sp"
+    />
 
     <EditText
         android:id="@+id/editTextRepeat"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:textSize="15sp"
-        android:gravity="start|center_vertical"
-        android:background="@drawable/custom_edit_box_white"
-        android:hint="Ponovno unesite novu lozinku"
-        android:textColorHint="@color/white"
-        android:textColor="@color/white"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/black"
+        android:maxLines="1"
         android:inputType="textPassword"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
 
     <Button
         android:id="@+id/changePasswordBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:text="Promijenite lozinku" />
 </LinearLayout>

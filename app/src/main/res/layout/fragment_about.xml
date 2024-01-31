@@ -1,17 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".About">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/forgotTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_round"
+        android:drawableLeft="@drawable/question"
+        android:drawablePadding="5dp"
+        android:padding="10dp"
+        android:text="O aplikaciji"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="About"
-        android:textSize="36sp"
-        android:gravity="center"
-        android:textColor="@color/white"/>
+        android:layout_height="wrap_content"
+        android:text="Sigurno putovanje kroz prošlost vašeg vozila s VIN dekoderom! Naša aplikacija vam omogućuje da istražite tajanstveni svijet vašeg vozila pomoću VIN broja. Otkrijte sve informacije o proizvođaču, modelu, godini proizvodnje, motornom prostoru i mnogo više. S lakoćom provjerite povijest vozila i budite sigurni u svoj odabir. Bez obzira jeste li kupac automobila ili jednostavno želite saznati više o svom vlastitom vozilu, naš VIN dekoder je vaš ključ za razumijevanje automobilske prošlosti. Uživajte u pouzdanim informacijama i putujte sigurno s našom aplikacijom!"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        />
 
-</FrameLayout>
+</LinearLayout>

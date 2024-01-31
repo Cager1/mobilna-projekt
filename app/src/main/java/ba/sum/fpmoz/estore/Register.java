@@ -42,19 +42,19 @@ public class Register extends AppCompatActivity {
                 String password = signupPassword.getText().toString().trim();
 
                 if (user.isEmpty()){
-                    signupEmail.setError("Email cannot be empty");
+                    signupEmail.setError("Email ne može ostati prazan");
                 }
                 if(password.isEmpty()){
-                    signupPassword.setError("Password cannot be empty");
+                    signupPassword.setError("Lozinka ne može ostati prazna");
                 }else{
                     auth.createUserWithEmailAndPassword(user, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
-                                Toast.makeText(Register.this, "SignUp succesful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Register.this, "Registracija uspješna", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(Register.this, MainActivity.class));
                             } else {
-                                Toast.makeText(Register.this, "SigUp failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Register.this, "Registracija neuspješna" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

@@ -56,23 +56,23 @@ public class Login extends AppCompatActivity {
                                 .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                     @Override
                                     public void onSuccess(AuthResult authResult) {
-                                        Toast.makeText(Login.this, "Login Succesful", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Login.this, "Prijava uspješna", Toast.LENGTH_SHORT).show();
                                         startActivity(new Intent(Login.this, MainActivity.class));
                                         finish();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Login.this, "Prijava neuspješna, netočan Email ili lozinka", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     } else {
-                        loginPassword.setError("Password cannot be empty");
+                        loginPassword.setError("Lozinka ne smije ostati prazna");
                     }
                 } else if(email.isEmpty()){
-                    loginEmail.setError(("Email cannot be empty"));
+                    loginEmail.setError(("Email ne smije ostati prazan"));
                 }else{
-                    loginEmail.setError("Please enter valid Email");
+                    loginEmail.setError("Molim vas unesite ispravan Email");
                 }
             }
         });
